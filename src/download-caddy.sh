@@ -5,7 +5,7 @@ _download_caddy_file() {
 	if [[ $sys_bit == "i386" || $sys_bit == "i686" ]]; then
 		local caddy_download_link="https://caddyserver.com/download/linux/386?license=personal"
 	else
-		local caddy_download_link="https://caddyserver.com/download/linux/amd64?license=personal"
+		local caddy_download_link="https://github.com/caddyserver/caddy/releases/download/v1.0.3/caddy_v1.0.3_linux_amd64.tar.gz"
 	fi
 
 	mkdir -p $caddy_tmp
