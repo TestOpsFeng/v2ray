@@ -1,6 +1,6 @@
 _get_latest_version() {
 	v2ray_latest_ver="$(curl -H 'Cache-Control: no-cache' -s https://api.github.com/repos/v2ray/v2ray-core/releases/latest | grep 'tag_name' | awk -F\" '{print $4}')"
-
+	echo "获取最新v2ray版本为： ${v2ray_latest_ver}"
 	if [[ ! $v2ray_latest_ver ]]; then
 		echo
 		echo -e " $red获取 V2Ray 最新版本失败!!!$none"
@@ -19,7 +19,7 @@ _download_v2ray_file() {
 	mkdir -p /tmp/v2ray
 	v2ray_tmp_file="/tmp/v2ray/v2ray.zip"
 	v2ray_download_link="https://github.com/v2ray/v2ray-core/releases/download/$v2ray_latest_ver/v2ray-linux-${v2ray_bit}.zip"
-
+	echo "下载v2ray链接为： ${v2ray_download_link}"
 	if ! wget --no-check-certificate -O "$v2ray_tmp_file" $v2ray_download_link; then
 		echo -e "
         $red 下载 V2Ray 失败啦..可能是你的 VPS 网络太辣鸡了...请重试...$none
