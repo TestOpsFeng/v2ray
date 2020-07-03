@@ -1,5 +1,5 @@
 _get_latest_version() {
-	v2ray_latest_ver="$(curl -H 'Cache-Control: no-cache' -s https://api.github.com/repos/v2ray/v2ray-core/releases/latest | grep 'tag_name' | awk -F\" '{print $4}')"
+	v2ray_latest_ver="$(curl -H 'Cache-Control: no-cache' -s https://api.github.com/repos/v2ray/v2ray-core/releases/latest | grep -Po 'tag_name[" :]+\K[^"]+')"
 	echo "获取最新v2ray版本为： ${v2ray_latest_ver}"
 	if [[ ! $v2ray_latest_ver ]]; then
 		echo
